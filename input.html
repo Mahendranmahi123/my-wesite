@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="css/style.css">
+ <title >FORM</title>
+</head>
+<body>
+	<form>
+    <div class="form">
+      <div class="form-group-1">
+       <div class="dateprojects">
+        <div >
+         <label>Date:</label>
+         <input class="date" type="date" name="date">
+       </div>
+       <div>
+         <label class="projects">Projects:</label>
+         <input type="text"class="project" placeholder="Select your projecti title">
+       </div>
+       <div>
+         <label>Hours:</label>
+         <input class="hours" type="time" name="hours">
+       </div>
+       <div>
+         <label  class="status" class="select">Status:</label>
+         <select class="statu">
+           <option value="comleted">Completed</option>
+           <option value="progress">progress</option>
+           <option value="pending">pending</option>
+         </select>
+       </div>
+       <button class="second1" type="button"><i class="fa-solid fa-minus"></i></button>
+       <button class="second" type="button"><i class="fa-solid fa-plus"></i></button>
+     </div>
+     <textarea></textarea>
+   </div>
+   <div>
+     <button class="submit" type="submit">Submit</button>
+   </div>
+ </div>
+</form>
+<script>
+  document.addEventListener( "DOMContentLoaded",() => {
+    const content=document.querySelector('.form-group-1');
+    const content1=document.querySelectorAll('.form-group-1');
+    const but1=document.getElementsByClassName('second');
+    const submitBtn = document.querySelector('.submit');
+    const textarea=document.querySelector('teaxtarea');
+  
+    if (but1[0]) {
+     but1[0].addEventListener('click',button1);
+   }
+
+   function button1() {
+    const inputs=content.cloneNode(true); 
+    document.querySelector('.form-group-1').appendChild(inputs);    
+    removeCard();
+    addcard();
+  }
+
+  function removeCard() {
+    const but2= document.querySelectorAll('.second1');
+    but2.forEach((hides) => {
+        hides.addEventListener('click', function() {
+          hides.closest('.form-group-1').remove();    
+        });
+    });
+  }
+  function addcard() {
+    // const but1= document.querySelectorAll('.second');
+    but1.forEach((adds) => {
+     const inputs=content.cloneNode(true);
+        adds.addEventListener('click', function() {
+          // adds.closest('.form-group-1').appendChild(inputs);    
+           document.querySelectorAll('.form-group-1').appendChild(inputs);
+        });
+    });
+  }
+
+
+  submitBtn.addEventListener('click', function button1(event) {
+    event.preventDefault();
+    const inputs=content.cloneNode(true);  
+    const but2= document.querySelectorAll('.second1');
+       const date=document.querySelectorAll('.date');
+       const project=document.querySelectorAll('.project');
+       const hours=document.querySelectorAll('.hours');
+       const sttatu=document.querySelectorAll('.statu');
+      // const textarea=document.querySelectorAll('textarea');
+
+    // console.log(heading);
+    // console.log(heading1);
+    // console.log(heading2);
+    // console.log(heading3);
+     // console.log(textarea);
+    date.forEach((items) => {
+      console.log(items.value);
+    });
+    project.forEach((items) =>{
+      console.log(items.value);
+    });
+    hours.forEach((items) =>{
+      console.log(items.value);
+    });
+    
+  })
+
+});
+</script>
+
+</body>
+</html>
